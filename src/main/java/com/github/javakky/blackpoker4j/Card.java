@@ -41,10 +41,6 @@ public class Card {
         return attack;
     }
 
-    public boolean isCanAttack() {
-        return canAttack;
-    }
-
     public Mark getMark() {
         return mark;
     }
@@ -87,6 +83,10 @@ public class Card {
 
     private void setJob(Job job) {
         this.job = job;
+    }
+
+    public boolean canAttack() {
+        return this.canAttack;
     }
 
     enum Mark {
