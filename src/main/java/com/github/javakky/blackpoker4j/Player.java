@@ -63,7 +63,7 @@ public class Player {
      * @return 捲ったカードのスートと番号
      */
     public Pair<Integer, Card.Mark> first_step() {
-        Card card = this.deck.first_step();
+        Card card = this.deck.firstStep();
         this.cemetery.addCard(card);
         return new Pair<>(card.getNumber(), card.getMark());
     }
