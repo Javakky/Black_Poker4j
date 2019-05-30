@@ -283,4 +283,46 @@ public class Field implements CardSheaf {
         addCard(tmp, true);
     }
 
+    /**
+     * 指定されたカードがドライブ状態かどうか.
+     */
+    public boolean isDrive(int barrierIndex) {
+        return !back.get(barrierIndex).isCharge();
+    }
+
+    /**
+     * 選択された兵士が攻撃可能かを調べる.
+     * @param index 調べたい兵士の順番(表向きのカードの中で)
+     */
+    public boolean canAttack(int index) {
+        return front.get(index).canAttack();
+    }
+
+    /**
+     * 選ばれた兵士のオブジェクトのコピーを返す.
+     * @param index 調べたい兵士の順番(表向きのカードの中で)
+     * @return 兵士カードのオブジェクトのコピー
+     */
+    public Card getSoldierData(int index) {
+        return front.get(index).clone();
+    }
+
+    /**
+     * 選ばれた兵士の番号を返す.
+     * @param index 調べたい兵士の順番(同じ向きのカードの中で)
+     * @param isFront カードは表か
+     * @return カード番号
+     */
+    public int getNumber(int index, boolean isFront) {
+        List<Card> list = isFront ? front: back;
+        return list.get(index).getNumber();
+    }
+
+    /**
+     * 選ばれた兵士の攻撃力を返す.
+     * @param index 調べたい兵士の順番(表向きのカードの中で)
+     */
+    public int getAttack(int index) {
+        return front.get(index).getAttack();
+    }
 }

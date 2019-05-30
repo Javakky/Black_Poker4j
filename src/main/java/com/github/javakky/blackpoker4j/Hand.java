@@ -52,4 +52,10 @@ public class Hand implements CardSheaf {
         return CardSheaf.takeCard(hand, index).getValue();
     }
 
+    /**
+     * 指定された手札のカードの職業を返す.
+     */
+    public Card.Job getJob(int handIndex) {
+        return this.hand.get(handIndex).getJob();
+    }
 }

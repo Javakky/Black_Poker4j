@@ -76,7 +76,7 @@ public class Deck implements CardSheaf {
     /**
      * デッキの一番上のカードを取り出す。
      */
-    public Card take_top() {
+    public Card takeTop() {
         return deck.pop();
     }
 
@@ -84,8 +84,8 @@ public class Deck implements CardSheaf {
      * ゲーム開始時の先攻判定に用いる。
      * @return デッキの一番上のカード
      */
-    public Card first_step() {
-        return this.take_top();
+    public Card firstStep() {
+        return this.takeTop();
     }
 
     /**
@@ -93,7 +93,7 @@ public class Deck implements CardSheaf {
      * @return デッキの一番上のカード
      */
     public Card draw() {
-        return this.take_top();
+        return this.takeTop();
     }
 
     /**
@@ -101,7 +101,7 @@ public class Deck implements CardSheaf {
      * @return デッキの一番上のカード
      */
     public Card damage() {
-        return this.take_top();
+        return this.takeTop();
     }
 
     /**

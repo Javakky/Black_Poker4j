@@ -2,7 +2,7 @@ package com.github.javakky.blackpoker4j;
 
 import static com.github.javakky.blackpoker4j.Card.Job.*;
 
-public class Card {
+public class Card implements Cloneable {
 
     private int number;
     private int attack;
@@ -31,6 +31,16 @@ public class Card {
             this.setJob(MAGICIAN);
             this.setCanAttack(true);
         }
+    }
+
+    private Card(int number, int attack, boolean canAttack, Mark mark, boolean isCharge, boolean isFront, Job job) {
+        this.setNumber(number);
+        this.setAttack(attack);
+        this.setCanAttack(canAttack);
+        this.setMark(mark);
+        this.setCharge(isCharge);
+        this.setFront(isFront);
+        this.setJob(job);
     }
 
     public int getNumber() {
@@ -87,6 +97,21 @@ public class Card {
 
     public boolean canAttack() {
         return this.canAttack;
+    }
+
+    @Override
+    public Card clone(){
+        return new Card(number, attack, canAttack, mark, isCharge, isFront, job);
+    }
+
+    public static boolean isNotSoldier(Job job){
+        switch (job) {
+            case ACE:
+            case HERO:
+            case MAGICIAN:
+                return true;
+        }
+        return false;
     }
 
     enum Mark {
